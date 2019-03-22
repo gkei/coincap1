@@ -1,4 +1,15 @@
 <h1>Hallo almal</h1>
 <p>Welkom by my 2de Ruby webblad</p>
 
-<%= @hello %>
+<br/><br/>
+
+<% @coins %>
+
+<% for xx in @coins %>
+    <% for coin in @mycoins %>
+        <% if coin == xx['currency'] %>
+            <%= xx['currency'] %> -- <%= xx['open']  %> -- <%= xx['close'] %> <br/>
+        <% end %>
+    <% end %>
+<% end %>    
+        
