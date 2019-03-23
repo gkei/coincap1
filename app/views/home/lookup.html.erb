@@ -1,0 +1,24 @@
+<h3>Currency lookup</h3>
+<p>just for playing a bit</p>
+
+<br/>
+
+
+<%= form_tag home_lookup_path, :method => 'POST' do %>
+    <%= text_field_tag 'Cur', nil,  placeholder: 'Enter crypto symbol', size: 50 %>
+    <%= submit_tag 'Lookup stock' %>
+<% end %>
+
+<br/><br/>
+
+<%= @currency %>
+
+<br/><br/>
+<% @onecurrency.each do |xx| %>
+<%= xx['exchange'] %> -- <%= xx['quote']  %> -- <%= xx['price']  %> -- <%= xx['timestamp'] %> <br/>
+<% end %>
+
+<br/><br/>
+
+<%= @onecurrency %>
+
