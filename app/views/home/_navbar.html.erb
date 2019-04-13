@@ -18,13 +18,15 @@
       <li><%= link_to 'Tuis', root_path %></li>
       <li><%= link_to 'About', home_about_path %></li>
       <li><%= link_to 'Lookup', home_lookup_path %></li>
+      
       <%  if user_signed_in? %>
           <li><%= link_to 'Opdateer profiel', edit_user_registration_path %></li>
           <li><%= link_to 'Teken af', destroy_user_session_path, method: :delete %></li>
       <%  else %>
           <li><%= link_to 'Registreer', new_user_registration_path %></li>
           <li><%= link_to 'Teken aan', new_user_session_path %></li>
-      <% end %>    
+      <% end %>   
+      
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
