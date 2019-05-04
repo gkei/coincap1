@@ -21,8 +21,10 @@
       
       <%  if user_signed_in? %>
           <li><%= link_to 'Opdateer profiel', edit_user_registration_path %></li>
-          <li><%= link_to 'Teken af', destroy_user_session_path, method: :delete %></li>
-      <%  else %>
+          <li><%= link_to 'My Cryptos', cryptos_path %></li>
+          <li><%= link_to 'Add Crypto', new_crypto_path %></li>
+           <li><%= link_to 'Teken af', destroy_user_session_path, method: :delete %></li>
+     <%  else %>
           <li><%= link_to 'Registreer', new_user_registration_path %></li>
           <li><%= link_to 'Teken aan', new_user_session_path %></li>
       <% end %>   

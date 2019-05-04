@@ -1,6 +1,8 @@
 class CryptosController < ApplicationController
   before_action :set_crypto, only: [:show, :edit, :update, :destroy]
-
+  before_action :authenticate_user!
+  before_action :correct_user,  only: [:show, :edit, :update, :destroy]
+  
   # GET /cryptos
   # GET /cryptos.json
   def index
@@ -71,4 +73,10 @@ class CryptosController < ApplicationController
     def crypto_params
       params.require(:crypto).permit(:symbol, :user_id, :cost_per, :amount_owned)
     end
+    
+    def correct_user
+      @confirmuser = current_user.cryptos.find_by(id: params[:id])
+      redirect_to cryptos_path, notice: "Toegan nie toegelaat nie" if @confirmuser.nil?
+    end
+  
 end
